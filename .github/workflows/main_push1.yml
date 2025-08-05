@@ -1,7 +1,8 @@
-name: Repository Event Trigger workflow
+name: Manual Trigger via UI workflow
 
 
-on: push
+on: 
+ workflow_dispatch
 
 jobs:
   build:

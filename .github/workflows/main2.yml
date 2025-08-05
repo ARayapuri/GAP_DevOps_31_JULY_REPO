@@ -1,4 +1,4 @@
-name: Repo Event Trigger workflow
+name: Activity Type opened Trigger workflow
  
  
 on: 

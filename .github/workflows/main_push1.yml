@@ -1,8 +1,9 @@
-name: Manual Trigger via UI workflow
+name: Schedule Runs as cron job workflow
 
 
 on: 
- workflow_dispatch
+  schedule:
+    - cron: '5 8 * * *'
 
 jobs:
   build:

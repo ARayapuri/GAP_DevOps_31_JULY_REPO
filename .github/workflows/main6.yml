@@ -1,10 +1,13 @@
-name: Branch trigger workflow
 
+name: Branch ignore trigger workflow
 
-on: 
-  push:
+on:
+   push:
     branches:
-            main
+      - main
+      - develop
+    tags-ignore:
+      - 'v1.*'
 
 jobs: 
 

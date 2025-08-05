@@ -1,7 +1,9 @@
 name: Repo Event Trigger workflow
  
  
-on: [push, issues, pull_request]
+on: 
+ pull_request: 
+   types: opened
  
 jobs: 
 

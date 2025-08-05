@@ -43,5 +43,5 @@ jobs:
 
       - name: Print deploy
 
-        run: echo "deploy
+        run: echo "deploy"
  

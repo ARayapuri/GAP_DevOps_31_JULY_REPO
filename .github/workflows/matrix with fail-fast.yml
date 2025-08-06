@@ -1,4 +1,4 @@
-name: Matrix
+name: Matrix with fasl-fast false
 
 on:
  workflow_dispatch

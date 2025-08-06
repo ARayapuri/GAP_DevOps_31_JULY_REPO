@@ -9,8 +9,4 @@ jobs:
       - name: Print one GitHub Context variable
         run: |
             echo "Repository: ${{github.repository}}"
-      - name: Examples
-        if: guthub.ref == 'refs/heads/master'
-        run: echo 'deploy'
-      - if: github.event_name == 'pull_request'
-        run: echo 'trigger the workflow'
+      

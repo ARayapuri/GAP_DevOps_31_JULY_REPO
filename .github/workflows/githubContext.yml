@@ -9,5 +9,4 @@ jobs:
    - name: Print Info about Gitgub
      run: |
       echo "Repository details ${{github.repository}}"
-      echo "Repository id ${{github.repository_id}}"
-      echo "Runner number is ${{github.run_number}}"
+   

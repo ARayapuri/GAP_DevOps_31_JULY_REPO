@@ -3,14 +3,14 @@ name: Variable
 on:
  workflow_dispatch
 env:
- MY_VAR: workflow
+ MY_VAR: Java
 jobs:
   variables:
    env:
-     MY_VAR: jobs
+     MY_VAR: SringBoot
    runs-on: ubuntu-latest
    steps:
       - name: Print
         run: echo '${{env.MY_VAR}}'
         env:
-         MY_VAR: steps
+         MY_VAR: DevOps

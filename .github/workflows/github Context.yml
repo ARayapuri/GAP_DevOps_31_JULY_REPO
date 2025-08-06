@@ -1,0 +1,15 @@
+
+name: GitHub Context
+
+on: 
+ workflow_dispatch
+jobs:
+ github_context:
+  runs-on: ubuntu latest
+  steps:
+   - name: Print Info about Gitgub
+     run: |
+      echo "Repository details ${{github.repository}}"
+      echo "Repository id ${{github.repository_id}}"
+      echo "Repository url ${{github.repositoryUrl}}"
+      echo "Runner number is ${{github.run_number}}"

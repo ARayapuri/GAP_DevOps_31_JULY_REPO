@@ -1,4 +1,4 @@
-name: GitHub Context
+name: GitHub Context Info
 
 on: 
  workflow_dispatch

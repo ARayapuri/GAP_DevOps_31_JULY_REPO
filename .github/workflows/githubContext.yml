@@ -8,7 +8,7 @@ jobs:
   steps:
    - name: Print Info about Gitgub
      run: |
-      echo 'Repository details ${{github.repository}}'
-      echo 'Repository id ${{github.repository_id}}'
-      echo 'Repository url ${{github.repositoryUrl}}'
-      echo 'Runner number is ${{github.run_number}}'
+      echo "Repository details ${{github.repository}}"
+      echo "Repository id ${{github.repository_id}}"
+      echo "Repository url ${{github.repositoryUrl}}"
+      echo "Runner number is ${{github.run_number}}"

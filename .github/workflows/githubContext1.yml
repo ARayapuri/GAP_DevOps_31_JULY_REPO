@@ -1,0 +1,11 @@
+name: Github Context1
+
+on: 
+  workflow_dispatch
+jobs:
+  github_context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print one GitHub Context variable
+        run: |
+            echo "Repository: ${{github.repository}}"

@@ -26,6 +26,8 @@ jobs:
          os: windows-latest
          java: 21
    steps: 
+     - name: Checkout repository
+       uses: actions/checkout@v3
      - name: Setup Java JDK
        uses: actions/setup-java@v3.14.1
        with: 

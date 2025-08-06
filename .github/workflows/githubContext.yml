@@ -11,7 +11,6 @@ jobs:
       echo 'Repository details ${{github.repository}}'
       echo 'Repository id ${{github.repository_id}}'
       echo 'Repository url ${{github.repositoryUrl}}'
-      echo 'Repository token ${{github.token}}'
       echo 'Worklow name ${{github.workflow}}'
       echo 'Actor ${{github.actor}}'
       echo 'ref details ${{github.ref}}'

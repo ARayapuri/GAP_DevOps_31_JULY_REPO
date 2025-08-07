@@ -1,0 +1,82 @@
+name: Full Setup Workflow
+
+on:
+  workflow_dispatch:
+
+env:
+  GLOBAL_GREETING: "Hello from ENV"
+
+jobs:
+
+  show_context:
+    runs-on: ubuntu-latest
+    outputs:
+      commit_message: ${{ steps.get_commit.outputs.message }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Print GitHub Context
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Global Greeting: $GLOBAL_GREETING"
+          echo "Repo Variable: ${{ vars.MY_REPO_VAR }}"
+          echo "Secret Key: ${{ secrets.API_KEY }}"
+
+      - name: Get Commit Message
+        id: get_commit
+        run: echo "message=Initial commit from show_context" >> $GITHUB_OUTPUT
+
+  setup_and_test:
+    needs: show_context
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        java: [11, 17]
+        node: [16, 20]
+        python: [3.9, 3.11]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Print Job Matrix Info
+        run: |
+          echo "Job Index: ${{ strategy.job-index }}"
+          echo "Total Jobs: ${{ strategy.job-total }}"
+          echo "Running on: ${{ matrix.os }}"
+          echo "Java: ${{ matrix.java }}"
+          echo "Node.js: ${{ matrix.node }}"
+          echo "Python: ${{ matrix.python }}"
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: microsoft
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Print Versions
+        run: |
+          java -version
+          node -v
+          python --version
+
+      - name: Use Output from Context Job
+        run: |
+          echo "Message from show_context job: ${{ needs.show_context.outputs.commit_message }}"

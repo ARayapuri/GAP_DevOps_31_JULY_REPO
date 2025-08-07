@@ -14,4 +14,8 @@ jobs:
           echo "Repository ID: ${{ github.repository_id }}"
           echo "Repository URL: ${{ github.repositoryUrl }}"
           echo "Runner number is: ${{ github.run_number }}"
+      - name: Print Actor Info
+        run: |
+          echo "Repository details: ${{ github.actor }}"
+          echo "Repository ID: ${{github.env}}"
 

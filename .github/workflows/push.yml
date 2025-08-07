@@ -1,5 +1,4 @@
-name: Repository Event Trigger workflow
-
+name: push
 
 on: push
 
